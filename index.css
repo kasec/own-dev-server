@@ -1,0 +1,85 @@
+body {
+    font-family: JetBrainsMono, Arial, Helvetica, sans-serif;
+    background-color:rgb(113, 166, 111);
+    margin: 0;
+}
+/* rgb(7, 140, 3)
+rgb(35, 140, 31)
+rgb(113, 166, 111)
+rgb(242, 242, 242)
+rgb(13, 13, 13) */
+
+body > main {
+    max-width: 1200px;
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgb(242, 242, 242);
+    padding: 1rem;
+}
+
+p {
+    font-size: .9rem;
+}
+
+ul {
+    font-size: .9rem;
+}
+
+.list-child {
+   margin: 10px 0; 
+}
+footer .email{
+    font-weight: 500;
+    font-size: 1rem;
+}
+footer div {
+    text-align: center;
+}
+.navbar ul {
+    padding: .7rem 0;
+    font-size: 1.2rem;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border-bottom: solid 4px rgb(35, 140, 31);
+    border-top: solid 4px rgb(7, 140, 3);
+
+}
+.navbar li {
+    border-right: solid 3px grey;
+    margin: .1rem;
+}
+.navbar a:hover {
+    background-color: #54992E;
+    border-radius: 2px;
+    color: white;
+}
+.navbar li:last-child {
+    border-right: none;
+}
+.navbar img {
+    max-height: 7rem;
+    display: inline-block;
+}
+.navbar a {
+    padding: .5rem;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    display: block;
+}
+footer .icon {
+    max-height: 3rem;
+}
+footer a {
+    text-decoration: none;
+}
+.navbar {
+    text-align: center;
+}
+
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("./fonts/JetBrainsMono-1.0.0/JetBrainsMono-Regular.ttf") format("truetype");
