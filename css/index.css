@@ -1,3 +1,5 @@
+@import url('./switch.css');
+@import url('./foldeable.css');
 body {
     font-family: JetBrainsMono, Arial, Helvetica, sans-serif;
     background-color:rgb(113, 166, 111);
@@ -26,7 +28,11 @@ ul {
 }
 
 .list-child {
-   margin: 10px 0; 
+   margin: 15px 0;
+}
+
+.list-child  li{
+   padding: .2em 0;
 }
 footer .email{
     font-weight: 500;
@@ -45,6 +51,34 @@ footer div {
     border-bottom: solid 4px rgb(35, 140, 31);
     border-top: solid 4px rgb(7, 140, 3);
 
+}
+.pointer {
+    cursor: pointer;
+}
+.flex-parent {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.topbar ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 2;
+}
+.topbar a {
+    text-decoration: none;
+    color: white;
+}
+.topbar li {
+    padding: .2em;
+}
+.topbar li:hover a {
+    display: block;
+    background-color: rgb(242, 242, 242);
+    color: #54992E;
+}
+.topbar summary {
+    padding: .5em;
 }
 .navbar li {
     border-right: solid 3px grey;
@@ -65,13 +99,19 @@ footer div {
 .navbar a {
     padding: .5rem;
     text-decoration: none;
-    color: black;
     font-weight: 500;
     display: block;
 }
 footer .icon {
     max-height: 3rem;
 }
+.topbar {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    font-size: .9em;
+}
+
 footer a {
     text-decoration: none;
 }
@@ -82,4 +122,10 @@ footer a {
 
 @font-face {
     font-family: "JetBrainsMono";
-    src: url("./fonts/JetBrainsMono-1.0.0/JetBrainsMono-Regular.ttf") format("truetype");
+    src: url("../fonts/JetBrainsMono-1.0.0/JetBrainsMono-Regular.ttf") format("truetype");
+}
+
+
+a {
+    color: black;
+}
