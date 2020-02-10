@@ -1,13 +1,13 @@
 window.onload = function() {
     console.log('Welcome to my Page');
 }
-const summaries = document.querySelectorAll("summary");
-const [ darkModeEl ] = document.getElementsByClassName('switch')
+var summaries = document.querySelectorAll("summary");
+var darkModeEl = document.getElementsByClassName('switch')[0];
 
-const foldableComponent = function() {
+var foldableComponent = function() {
     
-    summaries.forEach(summary => {
-        const details = summary.closest("details");
+    summaries.forEach(function(summary) {
+        var details = summary.closest("details");
     
         summary.addEventListener("click", function(event) {
             // first a guard clause: don't do anything 
@@ -32,14 +32,14 @@ const foldableComponent = function() {
     
         // when user hovers over the summary element, 
         // add the open attribute to the details element
-        summary.addEventListener("mouseenter", event => {
+        summary.addEventListener("mouseenter", function(event) {
             details.setAttribute("open", "open");
         });
     
         // when the user moves the mouse away from the details element,
         // perform the out-animation and delayed attribute-removal
         // just like in the click handler
-        details.addEventListener("mouseleave", event => {
+        details.addEventListener("mouseleave", function(event) {
             details.classList.add("summary-closing");
             setTimeout(function() {
                 details.removeAttribute("open");
@@ -49,42 +49,54 @@ const foldableComponent = function() {
         });
     });
 }
-const darkModeHelper = function(evnt) {
-    const container = document.querySelector('.container');
-    const tabs = document.querySelector('.tabs');
-    const repoLinks = document.querySelectorAll('.repo-profiles');
-    const darkModeOn = evnt !== undefined ? evnt  : localStorage.getItem('darkModeOne')
+var darkModeHelper = function(evnt) {
+    var container = document.querySelector('.container');
+    var tabs = document.querySelector('.tabs');
+    var repoLinks = document.querySelectorAll('.repo-profiles');
+    var darkModeOn = evnt !== undefined ? evnt  : localStorage.getItem('darkModeOne')
     localStorage.setItem('darkModeOne', darkModeOn)
     if(darkModeOn === true || darkModeOn === 'true') {
-        darkModeEl.control.checked = true;
-        summaries.forEach(summary => {
+        darkModeEl.control ? darkModeEl.control.checked = true : this.checked = true;
+
+        for(var index = 0; index < summaries.length; index++) {
+            var summary = summaries[index];
             summary.style.backgroundColor = 'black';
-        })
+        }
+
         container.style.backgroundColor = 'black';
         container.style.color = 'white';
         tabs.style.backgroundColor = 'rgb(113, 166, 111)';
-        repoLinks.forEach(link => { 
-            link.style.color = 'white'
-        })
-        
+
+        for(var index = 0; index < repoLinks.length; index++) {
+            var link = repoLinks[index];
+            link.style.color = 'white';
+        }
+
         return
     }
-    summaries.forEach(summary => {
+    for(var index = 0; index < summaries.length; index++) {
+        var summary = summaries[index]
         summary.style.backgroundColor = 'rgb(242, 242, 242)';
-    })
+    }
     container.style.backgroundColor = 'rgb(242, 242, 242)';
     container.style.color = 'black';
     tabs.style.backgroundColor = 'rgb(242, 242, 242)';
+
+    for(var index = 0; index < repoLinks.length; index++) {
+        var link = repoLinks[index];
+        link.style.color = 'black';
+    }
+
 }
 
-const checkbox = document.querySelector("input[name=switch]");
+var checkbox = document.querySelector("input[name=switch]");
 
-const gotoEnglishVersion = function() {
+var gotoEnglishVersion = function() {
     console.log(document.location.href.replace('/es/', '/'))
     location.assign(document.location.href.replace('/es/', '/')) ;
 } 
 checkbox.addEventListener( 'change', function() {
-    darkModeHelper(darkModeEl.control.checked)
+    darkModeHelper(darkModeEl.control ? darkModeEl.control.checked : this.checked)
 });
 darkModeHelper();
 

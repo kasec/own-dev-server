@@ -8,7 +8,7 @@ summary::-webkit-details-marker {
 
 summary {
     cursor: default;
-    background-color: white;
+    /* background-color: white; */
     outline: 1px solid rgb(35, 140, 31);    
     padding: 10px;
 }
