@@ -5,13 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to my Page!</title>
     <link rel="icon" href="./images/logo/logo.svg">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/main.css">
     <script data-ad-client="ca-pub-3566337185147445" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173486203-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-173486203-1');
+    </script>
+
 </head>
 <body>
     <nav id="top-bar">
         <div class="container">
-            <a class="logo" href="index.html">
+            <a class="logo" href="/">
                 <img src="./images/logo/logo.png" alt="home">
                 <span class="name-text"> Azael Fernandez </span>
             </a>
@@ -24,18 +34,22 @@
                         <a href="projects.html">Projects</a> 
                     </li>
                     <li class="menu-link">
-                        <a href="blog.html">Blog <code>(coming soon)</code></a>
+                        <a href="blog/index.html">Blog</a>
+                    </li>
+                    <li class="menu-link">
+                        <a href="news/index.html">News</a>
                     </li>
                 </ul>
             </nav>
         </div>
         <nav class="nav-header -mobile">
+            <a href="news/index.html">News <code>(coming soon)</code></a>
             <a href="projects.html">Projects</a> 
-            <a href="blog.html">Blog <code>(coming soon)</code></a>
+            <a href="blog/index.html">Blog <code>(coming soon)</code></a>
         </nav>
     </nav>
     <section id="cover">
-        <img loading="lazy" id="cover-image" src=" " width="150" height="150" alt="random picture">
+        <img class="lazy" loading="lazy" id="cover-image" src=" " width="150" height="150" alt="random picture">
         <div class="cover-paragragh">
             <p class="main-text -title">Hi guys!</p>
             <p class="main-text -subtitle">It is not another Meme's Page, its me in that picture.</p> 
@@ -64,6 +78,6 @@
             <p class="main-text -small">© 2020-present Gelacio Azael Fernandez Aldava. All Rights Reserved.</p>
         </label>
     </footer>
-    <script src="./index.js"></script>
+    <script src="/scripts/index.js"></script>
 </body>
 </html>

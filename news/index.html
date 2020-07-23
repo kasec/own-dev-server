@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta 
+        name="description" 
+        content="This is a cover of my landing page, check it out."
+    >
+    <title>Visiting my Blog</title>
+    <link rel="icon" href="../images/logo/logo.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173486203-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-173486203-1');
+    </script>
+
+</head>
+<body>
+    <nav id="top-bar">
+        <div class="container">
+            <a class="logo" href="/">
+                <img src="../images/logo/logo.png" alt="home">
+                <span class="name-text"> Azael Fernandez </span>
+            </a>
+            <div class="mobile-navigation -mobile">
+                <a href="javascript:void(0);" onclick="openMenuNavigation()"><img src="../images/icons/burguer-menu.png" alt="burguer-menu"></a>
+            </div>
+            <nav class="nav-header">
+                <ul class="navigation">
+                    <li class="menu-link">
+                        <a href="/projects.html">Projects</a> 
+                    </li>
+                    <li class="menu-link">
+                        <a href="/blog/index.html">Blog</a>
+                    </li>
+                    <li class="menu-link -active">
+                        <a href="/news/index.html">News</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="nav-header -mobile">
+            <a href="/projects.html">Projects</a> 
+            <a href="/blog/index.html">Blog <code>(coming soon)</code></a>
+        </nav>
+    </nav>
+    <section id="content">
+        <div>
+            <p>Here News about tech coming soon.</p>
+        </div>
+    </section>
+    <footer>
+        <input type="checkbox" id="expandable"/>
+        <label class="wrapper" for="expandable">
+            <div class="paragraph">
+                <p class="foldeable main-text"><b>Thanks for visiting the site!</b></p>
+                <p class="main-text -small">Made with ❤️ in Nombre de Dios, Dgo.</p>
+                <p class="foldeable main-text -small">If you want to find me elsewhere on the web, here’s where I hang out.</p>
+            </div>
+            <div class="foldeable net-icons">
+                <a class="net-icon" href="https://www.instagram.com/gazaelofficial/" target="_blank"><img src="../images/icons/instagram.png" alt="instagram picture"></a>
+                <a href="https://twitter.com/azaelfernandez" target="_blank" class="net-icon"><img src="../images/icons/twitter.webp" alt="twitter picture"></a>
+                <a class="net-icon" href="https://www.linkedin.com/in/gelacio-azael-f-a3694681" target="_blank"><img src="../images/icons/linkedin.png" alt="linkedin picture"></a>
+                <a href="https://open.spotify.com/user/1224585085?si=1_dzSXyqQ-ikeAGb2biZxg" target="_blank" class="net-icon"><img src="../images/icons/spotify.png" alt="spotify picture"></a>
+                <a class="net-icon" href="https://medium.com/@gazaelfernandez" target="_blank"><img src="../images/icons/medium.png" alt="medium picture"></a>
+            </div>
+            <div class="foldeable net-icons">
+                <a class="net-icon" href="https://github.com/kasec" target="_blank"><img src="../images/icons/github.svg" alt="github picture"></a>
+                <a class="net-icon" href="https://gitlab.com/galfan" target="_blank"><img src="../images/icons/gitlab.webp" alt="gitlab picture"></a>
+            </div>
+            <p class="main-text -small">© 2020-present Gelacio Azael Fernandez Aldava. All Rights Reserved.</p>
+        </label>
+    </footer>
+    <script src="../scripts/index.js"></script>
+</body>
+</html>
