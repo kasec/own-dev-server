@@ -1,0 +1,41 @@
+@import url('./default.css');
+
+#content {
+    margin: 0 2em;
+    display: flex;
+    flex-flow: column;
+    min-height: 60%;
+}
+#content > .title {
+    border-bottom: 2px double black;
+}
+#content > .posts {
+    margin-top: 2rem;
+}
+#content > .posts > .card {
+    border: none;
+    margin: 0;
+    margin-top: .5rem;
+    padding: 0rem;
+    border-bottom: 1px solid grey;
+}
+#content > .posts > .card > .header {
+    margin: 0;
+    margin-left: .3rem;
+    display: flex;
+}
+#content > .posts > .card > .header > .date {
+    font-style: italic;
+    font-size: .9rem;
+    font-weight: lighter;
+}
+#content > .posts > .card:hover {
+    background-color: #d3d3d34f;
+    cursor: pointer;
+    border-radius: 2%;
+}
+#content > .posts > .card > .data-tech {
+   margin: .5rem 0;
+   padding: .5rem;
+   margin-left: .3rem; 
+}
