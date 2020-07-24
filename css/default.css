@@ -209,7 +209,6 @@ code {
         max-width: 2rem;
     }
 }
-
 footer {
     background-color: rgb(35, 140, 31);
 }
@@ -230,12 +229,16 @@ footer > .wrapper {
     text-align: left;
     cursor: pointer;
 }
-footer > .wrapper > .paragraph > .main-text {
-    margin: .2rem 0 .2rem 0;
+footer > .wrapper > .header {
+    margin: .5rem 0;
 }
-footer > .wrapper > .paragraph {
-    margin: 1rem 0;
+footer > .wrapper > .footer {
+    margin: .5rem 0;
 }
+footer > .wrapper  .main-text {
+    margin: .2rem 0;
+}
+
 footer > .wrapper > .net-icons {
     margin: .8rem;
 }
@@ -252,4 +255,12 @@ footer > .wrapper > .net-icons > .net-icon > img {
 }
 #expandable:checked + .wrapper .foldeable {
     display: none;
+}
+@media only screen and (max-width: 852px) {
+    footer > .wrapper > .header {
+        margin: .5rem 0 0 0;
+    }
+    footer > .wrapper > .footer {
+        margin: 0 0 .5rem 0;
+    }
 }

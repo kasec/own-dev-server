@@ -21,10 +21,27 @@
 }
 #content > .posts > .card > .header {
     margin: 0;
+}
+#content > .posts > .card > .header > .title {
+    background-color: rgb(7, 140, 3);
+    color: white;
+    padding: 5px;
+}
+#content > .posts > .card > .footer {
+    padding-top: 5px;
+    margin: 0;
     margin-left: .3rem;
     display: flex;
+    justify-content: space-between;
+    padding-bottom: 2px;
 }
-#content > .posts > .card > .header > .date {
+#content > .posts > .card > .footer > .author{
+    border-bottom: 2px dashed rgb(7, 140, 3);
+    font-style: italic;
+    font-weight: lighter;
+    font-size: .9rem;
+}
+#content > .posts > .card > .footer > .date {
     font-style: italic;
     font-size: .9rem;
     font-weight: lighter;
@@ -37,5 +54,8 @@
 #content > .posts > .card > .data-tech {
    margin: .5rem 0;
    padding: .5rem;
-   margin-left: .3rem; 
+   margin-left: .3rem;
+   border-left: ;
+   border-left: 8px solid rgb(113, 166, 111);
+   background-color: #d3d3d366;
 }
