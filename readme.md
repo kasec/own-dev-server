@@ -14,8 +14,10 @@
     3.4. [STAND-BY] Check how is the right way to toggle to white and dark theme.
 4. [DONE] Add nessesary meta tags in html.
 5. [STAND-BY] Add i18n.
-6. [TODO] Add News Blog (coming soon) label.
-7. [TODO] Create spanish and english blog about serverless function.
+6. [DONE] Add News Blog (coming soon) label.
+7. [DOING] Create spanish and english blog about serverless function.
+8. [TODO] ADD PIN POST ABOUT ME, WHAT CAN I DO(EXPERTISE) AND MY INSPIRATIONS.
+    - ADD AUTHOR'S NAME.
 Created by Galfan @ 2020
 
 + Check those websites and watch what can i do about it, talk about my inspiration to create this site and what gonna be in the future, open mind, open learning, start with post in spanish and english as well.
