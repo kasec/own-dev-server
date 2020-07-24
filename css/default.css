@@ -80,15 +80,18 @@ a {
     align-items: center;
     margin-right: 30px;
     padding: .5rem;
+    color: black;
 }
 #top-bar > .container > .nav-header > .navigation > .menu-link.-active {
-    background-color: rgb(113, 166, 111);
+    background-color: rgb(35, 140, 31);
+    color: white
 }
 #top-bar > .container > .nav-header > .navigation > .menu-link:hover {
     background-color: rgb(113, 166, 111);
 }
 #top-bar > .container > .nav-header > .navigation > .menu-link > a {
     text-decoration: none;
+    color: inherit;
 }
 #top-bar > .nav-header.-mobile > a {
     text-decoration: none;
