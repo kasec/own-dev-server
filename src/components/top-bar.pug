@@ -1,0 +1,19 @@
+- const buttons = [{label:'Projects', route: '/projects.html'}, {label: 'Blog', route: '/blog/index.html'}, {label: 'News', route: 'news/index.html'}] 
+
+nav#top-bar
+    .container
+        a.logo(href="/")
+            img(src="/assets/images/logo/logo.png", alt="logo image")
+            span.name-text
+                | Azael Fernandez
+            .mobile-navigation.-mobile
+                a(class="menu-navigation-button pointer")
+                    img(src="assets/images/icons/burguer-menu.png" alt="burguer-menu")
+        nav.nav-header
+            ul.navigation
+                each field in buttons
+                    li.menu-link
+                        a(href=field.route)= field.label
+    nav.nav-header.-mobile
+        each field in buttons
+            a(href=field.route)= field.label
