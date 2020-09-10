@@ -34,7 +34,7 @@ export default function pugToHtml (options) {
     let views = {}
     
     return {
-      name: 'pug-to-html',  // this name will show up in warnings and errors
+      name: 'selecting-views',  // this name will show up in warnings and errors
       resolveId(id) {
         if(pattern.test(id)) {
           views[id] = { ...views[id], id }
