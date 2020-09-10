@@ -3,7 +3,7 @@ import serve from 'rollup-plugin-serve'
 import css from 'rollup-plugin-css-only'
 import selectingViews from './plugins/selecting-views-plugin'
 import copy from 'rollup-plugin-copy'
-// import assetsLoader from './plugins/assets-loader'
+import injectingStyles from './plugins/injecting-styles'
 import multi from '@rollup/plugin-multi-entry';
 import livereload from 'rollup-plugin-livereload'
 import clear from 'rollup-plugin-clear'
@@ -25,7 +25,7 @@ export default {
 		}),
 		multi({entryFileName: 'bundle.js'}),
 		// assetsLoader(),
-		css({output: 'output/styles/bundle.css'}),
+		// css({output: 'output/styles/bundle.css', include: ['src/styles/*.css'], exclude: ['src/**/*.css']}),
 	// 	// // stylus(),
 		pug({
 			doctype: 'html',
@@ -35,10 +35,10 @@ export default {
 			extensions: ['.pug', '.jade'],
 			staticPattern: /(?:pug|jade)$/
 		}),
-		// injectingLibraries({ pattern: /\.static\.(?:pug)$/}),
+		injectingStyles({ pattern: /styles\/.+\.(?:css)$/}),
 		selectingViews({
 			pattern: /\.static\.(?:pug)$/,
-			stylesDir: '/styles', //obviusly inside of output. its function its ref in each html to /output/[stylesDir]/bundle.css
+			stylesDir: '/styles', //obviusly inside of output. its function its ref in each html to /output/[stylesDir]/main.css
 		}),
 	]
 };
@@ -54,6 +54,31 @@ export default {
 // 		format: 'es'
 // 	},
 // 	plugins: [
+// 		livereload('output'),
+// 		serve('output'),
+// 	]
+// };
+
+// export default {
+// 	input: 'esp',
+// 	output: {
+// 		file: './output/bundle.js',
+// 		format: 'es'
+// 	},
+// 	plugins: [
+// 		(() => ({
+// 			name: 'some',
+// 			resolveId: (spurce) => {
+// 				return spurce
+// 			},
+// 			load ( id ) {
+// 				console.log(id);
+// 				if (id === 'esp') {
+// 				  return 'export default "This is virtual!"'; // the source code for "virtual-module"
+// 				}
+// 				return null; // other ids should be handled as usually
+// 			  }
+// 		}))(),
 // 		livereload('output'),
 // 		serve('output'),
 // 	]
