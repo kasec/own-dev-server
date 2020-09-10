@@ -12,6 +12,7 @@
     - see multi input and output rollup docs.
     + investigate css plugin and renderchunk hook in rollupjs
 - Check livereloading(fresh refresh always works)
+- Create dir to views and dont use bundle.js just use chunks of js files.
 - [STAND-BY] Looking for a better git flow includes, version, pr and everything about better development proccess, simulating a open source library flow.
 
 with chunks can create a small pieces of code but always this pieces go to bundle output but you can got that pieces and import them in another sources without to import all bundle js file.  
