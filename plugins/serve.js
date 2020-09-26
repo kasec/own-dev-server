@@ -1,12 +1,11 @@
 import { readFile } from 'fs'
 import { createServer } from 'http'
 import { resolve } from 'path'
+
 import mime from 'mime'
-import { createFilter } from 'rollup-pluginutils'
-import pug from 'pug'
-import viewHandler from './view-handler-plugin'
+
 let server
-const pattern = /\.view\.(?:pug)$/
+
 /**
  * Serve your rolled up bundle like webpack-dev-server
  * @param {ServeOptions|string|string[]} options
@@ -25,10 +24,9 @@ function serve (options = { contentBase: '' }) {
   if (options.mimeTypes) {
     mime.define(options.mimeTypes, true)
   }
-  const cleanId = function(str) {
-    return str.replace(/(.*src\/)/, '').replace(/(views\/)/, '')
-  }
+
   const requestListener = (request, response) => {
+    // Remove querystring
     console.log('requestListener', request.url);
     const urlPath = decodeURI(request.url.split('?')[0])
 
@@ -62,47 +60,23 @@ function serve (options = { contentBase: '' }) {
       }
     })
   }
+
   // release previous server instance if rollup is reloading configuration in watch mode
   console.log('server var => ', server);
-
   if (server) {
     server.close()
   } else {
     closeServerOnTermination()
   }
-  
+
   server = createServer(requestListener).listen(options.port, options.host)
-  
-  const pugFilter = createFilter(['**/*.pug']);
-  const cssFilter = createFilter(['**/*.css']);
-  const jsFilter = createFilter(['**/*.js']);
-  let viewsInstance;
+
   let running = options.verbose === false
+
   return {
     name: 'serve',
-    buildStart() {
-      viewsInstance = viewHandler({pattern: /\.static\.(?:pug)$/})
-    },
-    resolveId(id) {
-      return viewsInstance && viewsInstance.resolveId(id)
-    },
-    load(id) {
-      if(!pugFilter(id)) {
-        return ''
-      } else return viewsInstance.load(id)
-    },
-    transform(code, id) {
-      if(!pugFilter(id)) {
-        return null
-      }
-      const fileName = cleanId(id)
-      this.emitFile({
-        name: fileName,
-        fileName: fileName,
-        type: 'asset',
-        source: code
-      })
-      return viewsInstance.transform(code, id)
+    resolveId(source) {
+      console.log('source', source);
     },
     generateBundle () {
       console.log('development', development);
@@ -121,36 +95,21 @@ function serve (options = { contentBase: '' }) {
 
 function readFileFromContentBase (contentBase, urlPath, callback) {
   let filePath = resolve(contentBase[0] || '.', '.' + urlPath)
-  const options = {
-    doctype: 'html',
-    compileDebug: true,           
-    sourceMap: true,              
-    inlineRuntimeFunctions: false,
-    basedir: '_dist'
-  }
+
   // Load index.html in directories
   if (urlPath.endsWith('/')) {
-    filePath = resolve(filePath, 'index.static.pug')
+    filePath = resolve(filePath, 'index.html')
   }
-  console.log('filePath==',filePath.endsWith('.pug'));
-  if(filePath.endsWith('.pug')) {
-    pug.renderFile(filePath, options, function(error, content) {
-      console.log('typeof content', typeof content);
-      console.log('filePath', filePath.replace(pattern, '.html'));
-      callback(error, content, filePath.replace(pattern, '.html'))
-    })
-  }
-  else {
-    readFile(filePath, (error, content) => {
-      if (error && contentBase.length > 1) {
-        // Try to read from next contentBase
-        readFileFromContentBase(contentBase.slice(1), urlPath, callback)
-      } else {
-        // We know enough
-        callback(error, content, filePath)
-      }
-    })
-  }
+
+  readFile(filePath, (error, content) => {
+    if (error && contentBase.length > 1) {
+      // Try to read from next contentBase
+      readFileFromContentBase(contentBase.slice(1), urlPath, callback)
+    } else {
+      // We know enough
+      callback(error, content, filePath)
+    }
+  })
 }
 
 function notFound (response, filePath) {
@@ -161,8 +120,7 @@ function notFound (response, filePath) {
 }
 
 function found (response, filePath, content) {
-  console.log('contentType', mime.getType(filePath) || 'text/html');
-  response.writeHead(200, { 'Content-Type': mime.getType(filePath) || 'text/html' })
+  response.writeHead(200, { 'Content-Type': mime.getType(filePath) })
   response.end(content, 'utf-8')
 }
 

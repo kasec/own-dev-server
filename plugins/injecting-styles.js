@@ -34,7 +34,6 @@ export default function injectingCSS (options) {
           
           return ''
         }
-        return
         // if(pattern.test(id) && code) {
         //     // console.log(code);
             

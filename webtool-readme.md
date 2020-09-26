@@ -54,3 +54,15 @@ Se tomaran bases sobre la informacion recabada en la documentacion de rollup ace
 - [TODO] Organizar el proyecto para ver que modificaciones y/o actualizaciones se le hacen al proyecto, sirvira para testear la applicacion.
 
 - Check how script reload works and fix to works in any file, maybe add script in all pugfiles, check the behavior.
+
+
+Quiero crear un pug dev server que se actualice cada vez que se modifique un archivo, actualmente funciona cuando modificas los script js y css styles, pero cuando modificas un componente de pugjs no la vista no se actualiza.
+Intente pero no pude, creo que el problema no se esta solucionando de la forma correcta, otra opcion seria checar los plugins  y que es lo que hace el de css para que si lo modique el stilo y que no hace el de pug en el componente.
+
+habra que ver si crear el dev server es la mejor opcion por que se tendria que  agregar estilos y scripts asi como componentes cada vez que se actualize algun cambio.
+
+ver la doc de rollup para ver si alguna opcion de cuando se cargue(load) la vista importarla su code para re crear el html en el output con alguna funcion de `this` y/o checar que es lo que hace el css y el de pug no.
+
+Se me ocurrio en la manana que podiamos cambiar el servidor y ahi mandar los .static/.views a transform hook escuchar la url del cliente y asi editarlo el archivo view, actualizar esa vista ya cuando escuchaste los archivos modificados.
+
+Ahora me viene la idea otra vez de modificar/crear el servidor express, que utilize en engine de pug ahi mismo y haga la compilacion JIT, solo al eschuchar ese archivo lo mandarias a la carpeta la cual estas escuchando. y lo cambios se harian.
