@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+	head
+		block meta-links
+			title Welcome To My Page
+		include /components/head.pug
+			
+	body
+		include /components/top-bar.pug
+		block content
+		
+		block scripts
+
+		block footer
+			include /components/footer.pug
+			
