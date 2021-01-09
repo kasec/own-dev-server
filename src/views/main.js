@@ -1,4 +1,4 @@
-import main from './index'
-console.log('jhsdfjhdsf');
+import main from '../scripts/index.js'
+console.log('hello world jjdsfjk');
 
 main();

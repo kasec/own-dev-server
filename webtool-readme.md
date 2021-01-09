@@ -66,3 +66,25 @@ ver la doc de rollup para ver si alguna opcion de cuando se cargue(load) la vist
 Se me ocurrio en la manana que podiamos cambiar el servidor y ahi mandar los .static/.views a transform hook escuchar la url del cliente y asi editarlo el archivo view, actualizar esa vista ya cuando escuchaste los archivos modificados.
 
 Ahora me viene la idea otra vez de modificar/crear el servidor express, que utilize en engine de pug ahi mismo y haga la compilacion JIT, solo al eschuchar ese archivo lo mandarias a la carpeta la cual estas escuchando. y lo cambios se harian.
+
+Funciona el server pero no refresca y cuando refrescas se pierden los estilos
+ademas se tiene que ver si no va haber conflictos con los scripts.
+
+Checar si el numero del emitFile cambia en el css file cuando se refresca, porque si funciona cuando editas el archivo y nose porque, se supone que crea el archivo otra vez pero si crea uno diferente con distinta referencia no sabria el html como asociarlo, o a menos que no cambie el id de referecia o si este modificando
+
+al parecer no cambia porque el id de referencia es el nombre del archivo no es un creado con un hash, lo que me lleva a la siguiente pregunta, cuando el archivo de js ver ese comportamiento y ver si cambia el nombre del archivo.
+
+al parecer los archivos de js se deben de crear con emitFile type chunk ya que si resuelve los archivs de forma correcta a diferencia del emit file que al querer resolver las importaciones no lo ahce de forma adecuada.
+
+## TODO
+
+- Create 2 environments:
++ **Prod** env, works now, but dont refresh when a pug component its updated, that's the reason becuase I gonna create a dev environment. Leave a rollup object exactly as it is currently, quit not needed plugins(livereload and serve)
+
+- **Dev** env, create a dev server, I made this currently, but doesnt work at all yet, when you refresh the styles are lost, fix every feature is need it.
+
+TASK above its ready
+
+- Read how to works filter to create mine with plugins about markdown-it
+https://pugjs.org/language/filters.html
+https://github.com/pugjs/pug/issues/404

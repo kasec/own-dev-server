@@ -1,7 +1,7 @@
 export default function() {
   const getImageNumber = (() => Math.ceil(Math.random() * 7))();
   const image = document.querySelector('#cover-image');
-  const SRC = 'assets/images/pics/' + getImageNumber + '.jpg';
+  const SRC = '/assets/images/pics/' + getImageNumber + '.jpg';
   console.log('adding something');
   
   if(image) {

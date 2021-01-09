@@ -3,6 +3,7 @@ rgb(35, 140, 31) lighter green
 rgb(113, 166, 111)
 #f8f9fa LIGHtWHITE
 rgb(13, 13, 13) black*/
+@import "https://cdn.jsdelivr.net/highlight.js/9.1.0/styles/github.min.css";
 body {
     /* font-family: JetBrainsMono, Arial, Helvetica, sans-serif; */
     font-family: 'Montserrat', sans-serif;
@@ -20,6 +21,25 @@ body {
 a {
     color: black;
 }
+pre { 
+    white-space: pre-wrap;
+    tab-size: 4;
+    box-sizing: border-box;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+	overflow-y: hidden;
+	font-size: 12px;
+	line-height: 20px;
+	background: #efefef;
+	border: 1px solid #777;
+    padding: 10px;
+    border-radius: 1%;
+    color: #333;
+    margin: .5rem;
+}
+pre[data-lang]::before { text-align: right; content: attr(data-lang); display: block; font-weight: bold;}
 
 @font-face {
     font-family: "JetBrainsMono";
@@ -109,12 +129,12 @@ a {
     background-color: rgb(113, 166, 111);
     margin: .5rem;
 }
-code {
+/* code {
     font-style: italic;
     background-color: lightgray;
     border-radius: 5%;
     padding: .1rem;
-}
+} */
 
 .main-text.-title {
     font-weight: 600;
@@ -250,6 +270,7 @@ code {
 }
 footer {
     background-color: rgb(35, 140, 31);
+    background-color: rgb(31, 31, 31);
 }
 
 footer > .wrapper {

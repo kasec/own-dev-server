@@ -6,15 +6,35 @@ import serve from 'rollup-plugin-serve'
 import multi from '@rollup/plugin-multi-entry';
 import livereload from 'rollup-plugin-livereload'
 import clear from 'rollup-plugin-clear'
+import devServer from './plugins/rollup-plugin-serve'
+import md from 'rollup-plugin-md';
+
 
 const { DEVELOPMENT } = process.env
 
-export default {
+let rollupConfiguration;
+console.log({ DEVELOPMENT });
+if(DEVELOPMENT) {
+	rollupConfiguration = {
+		input: ['src/**/*.pug', 'src/**/*.css', 'src/**/*.js', 'src/**/*.md'],
+		output: { dir: '_dist' },
+		plugins: [
+			clear({
+				targets: ['_dist'],
+			}),
+			copy({
+				targets: [ { src: 'src/assets', dest: '_dist' } ]
+			}),
+			multi({entryFileName: 'bundle.js'}),
+			injectingStyles({ pattern: /styles\/.+\.(?:css)$/}),
+			livereload('_dist'),
+			devServer('_dist'),
+		]
+	}
+} else rollupConfiguration = {
 	input: ['src/**/*.pug', 'src/**/*.css', 'src/**/*.js'],
 	output: { dir: '_dist' },
 	plugins: [
-		livereload('_dist'),
-		serve('_dist'),
 		clear({
 			targets: ['_dist'],
 		}),
@@ -32,8 +52,12 @@ export default {
 			basedir: 'src'
 		}),
 		injectingStyles({ pattern: /styles\/.+\.(?:css)$/}),
+		livereload('_dist'),
+		serve('_dist'),
 		viewHandler({
 			pattern: /\.static\.(?:pug)$/,
 		})
 	]
-};
+}
+
+export default rollupConfiguration;
