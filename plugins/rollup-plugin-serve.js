@@ -140,7 +140,7 @@ function serve (options = { contentBase: '' }) {
   return {
     name: 'serve',
     buildStart() {
-      viewsInstance = viewHandler({pattern, isDev: true})
+      viewsInstance = viewHandler({ pattern, isDev: true })
     },
     load(id) {
       return viewsInstance.load.call(this, id)
